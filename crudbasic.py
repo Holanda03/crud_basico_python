@@ -28,11 +28,18 @@ def readAll():
     result = c.fetchall()
     print(result)
 
+def readById(id):
+    sql = f'SELECT * FROM produto WHERE idproduto = {id}'
+    c.execute(sql)
+    result = c.fetchall()
+    print(result)
 
 # Tests
 #addProduto("panela", 2, 35)
 #addProduto("tampa", 2, 7.50)
 #readAll()
+#readById(1)
+#readById(2)
 
 
 c.close()
