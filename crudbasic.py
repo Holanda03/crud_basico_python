@@ -53,6 +53,13 @@ def updateQuantity(id, quantidade):
     db.commit()
 
 
+# DELETE
+def delete(id):
+    sql = f'DELETE FROM produto WHERE idproduto = {id}'
+    c.execute(sql)
+    db.commit()
+
+
 # Tests
 #addProduto("panela", 2, 35)
 #addProduto("tampa", 2, 7.50)
@@ -60,8 +67,9 @@ def updateQuantity(id, quantidade):
 #readById(1)
 #readById(2)
 #updateName(2, "facão")
-updatePrice(1, 37.90)
-updateQuantity(1, 4)
+#updatePrice(1, 37.90)
+#updateQuantity(1, 4)
+#delete(2)
 
 
 c.close()
