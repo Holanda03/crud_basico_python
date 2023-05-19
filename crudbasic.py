@@ -21,6 +21,7 @@ def addProduto(nome, quantidade, valor):
     c.execute(sql)
     db.commit()
 
+
 # READ
 def readAll():
     sql = f'SELECT * FROM produto'
@@ -34,12 +35,21 @@ def readById(id):
     result = c.fetchall()
     print(result)
 
+
+# UPDATE
+def updateName(id, nome):
+    sql = f'UPDATE produto SET nome = "{nome}" WHERE idproduto = {id}'    
+    c.execute(sql)
+    db.commit()
+
+
 # Tests
 #addProduto("panela", 2, 35)
 #addProduto("tampa", 2, 7.50)
 #readAll()
 #readById(1)
 #readById(2)
+updateName(2, "facão")
 
 
 c.close()
