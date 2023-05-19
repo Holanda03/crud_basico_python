@@ -42,6 +42,16 @@ def updateName(id, nome):
     c.execute(sql)
     db.commit()
 
+def updatePrice(id, valor):
+    sql = f'UPDATE produto SET valor = {valor} WHERE idproduto = {id}'
+    c.execute(sql)
+    db.commit()
+
+def updateQuantity(id, quantidade):
+    sql = f'UPDATE produto SET quantidade = {quantidade} WHERE idProduto = {id}'
+    c.execute(sql)
+    db.commit()
+
 
 # Tests
 #addProduto("panela", 2, 35)
@@ -49,7 +59,9 @@ def updateName(id, nome):
 #readAll()
 #readById(1)
 #readById(2)
-updateName(2, "facão")
+#updateName(2, "facão")
+updatePrice(1, 37.90)
+updateQuantity(1, 4)
 
 
 c.close()
