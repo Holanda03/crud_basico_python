@@ -30,10 +30,15 @@ def readAll():
     print(result)
 
 def readById(id):
-    sql = f'SELECT * FROM produto WHERE idproduto = {id}'
-    c.execute(sql)
-    result = c.fetchall()
-    print(result)
+    try:
+        sql = f'SELECT * FROM produto WHERE idproduto = {id}'
+        c.execute(sql)
+        result = c.fetchall()
+        print(result)
+    
+    except Exception as e:
+        print(f'SOMETHING WENT WRONG: {e}')
+
 
 
 # UPDATE
@@ -70,6 +75,7 @@ def delete(id):
 #updatePrice(1, 37.90)
 #updateQuantity(1, 4)
 #delete(2)
+#readById("adsd")
 
 
 c.close()
