@@ -17,9 +17,13 @@ c = db.cursor()
 
 # CREATE
 def addProduto(nome, quantidade, valor):
-    sql = f'INSERT INTO produto (nome, quantidade, valor) VALUES ("{nome}", {quantidade}, {valor})'
-    c.execute(sql)
-    db.commit()
+    try:
+        sql = f'INSERT INTO produto (nome, quantidade, valor) VALUES ("{nome}", {quantidade}, {valor})'
+        c.execute(sql)
+        db.commit()
+    
+    except Exception as e:
+        print(f'SOMETHING WENT WRONG: {e}')
 
 
 # READ
@@ -43,26 +47,41 @@ def readById(id):
 
 # UPDATE
 def updateName(id, nome):
-    sql = f'UPDATE produto SET nome = "{nome}" WHERE idproduto = {id}'    
-    c.execute(sql)
-    db.commit()
+    try:
+        sql = f'UPDATE produto SET nome = "{nome}" WHERE idproduto = {id}'    
+        c.execute(sql)
+        db.commit()
+    
+    except Exception as e:
+        print(f'SOMETHING WENT WRONG: {e}')
 
 def updatePrice(id, valor):
-    sql = f'UPDATE produto SET valor = {valor} WHERE idproduto = {id}'
-    c.execute(sql)
-    db.commit()
+    try:
+        sql = f'UPDATE produto SET valor = {valor} WHERE idproduto = {id}'
+        c.execute(sql)
+        db.commit()
+    
+    except Exception as e:
+        print(f'SOMETHING WENT WRONG: {e}')
 
 def updateQuantity(id, quantidade):
-    sql = f'UPDATE produto SET quantidade = {quantidade} WHERE idProduto = {id}'
-    c.execute(sql)
-    db.commit()
+    try:
+        sql = f'UPDATE produto SET quantidade = {quantidade} WHERE idProduto = {id}'
+        c.execute(sql)
+        db.commit()
 
+    except Exception as e:
+        print(f'SOMETHING WENT WRONG: {e}')
 
 # DELETE
 def delete(id):
-    sql = f'DELETE FROM produto WHERE idproduto = {id}'
-    c.execute(sql)
-    db.commit()
+    try:
+        sql = f'DELETE FROM produto WHERE idproduto = {id}'
+        c.execute(sql)
+        db.commit()
+    
+    except Exception as e:
+        print(f'SOMETHING WENT WRONG: {e}')
 
 
 # Tests
